@@ -25,8 +25,8 @@ distribution = false
 [tool.pdm.scripts]
 start = "python src/main.py"
 clean = "python clean.py"
-package = "pyinstaller --onefile --name hello-fastapi src/main.py"
-try_export = "pdm export -f requirements --no-hashes"
+package = "pyinstaller --onefile --name hello-fastapi --paths src src/main.py"
+transfer = "pdm export -f requirements --no-hashes"
 
 [tool.pdm.build]
 package-dir = "src"
