@@ -1,0 +1,35 @@
+[project]
+name = "hello-fastapi"
+version = "0.1.0"
+
+description = "Sample project of fastapi by PDM package"
+authors = [
+  { name = "photowey", email = "photowey@gmail.com" },
+]
+
+dependencies = [
+  "fastapi>=0.115.6",
+  "APScheduler>=3.11.0",
+  "uvicorn>=0.34.0",
+  "pydantic>=2.10.4",
+  "pyinstaller>=6.11.1"
+]
+
+requires-python = "==3.13.*"
+readme = "README.md"
+license = { text = "Apache-2.0" }
+
+[tool.pdm]
+distribution = false
+
+[tool.pdm.scripts]
+start = "python src/main.py"
+clean = "python clean.py"
+package = "pyinstaller --onefile --name hello-fastapi src/main.py"
+try_export = "pdm export -f requirements --no-hashes"
+
+[tool.pdm.build]
+package-dir = "src"
+
+[repository.pypi]
+url = "https://mirrors.aliyun.com/pypi/simple"
